@@ -1,16 +1,16 @@
 // Import Actions
-import { TOGGLE_ADD_POST } from './AppActions';
+import { TOGGLE_ADD_TRAVEL } from './AppActions';
 
 // Initial State
 const initialState = {
-  showAddPost: false,
+  showAddTravel: false,
 };
 
 const AppReducer = (state = initialState, action) => {
   switch (action.type) {
-    case TOGGLE_ADD_POST:
+    case TOGGLE_ADD_TRAVEL:
       return {
-        showAddPost: !state.showAddPost,
+        showAddTravel: !state.showAddTravel,
       };
 
     default:
@@ -21,7 +21,7 @@ const AppReducer = (state = initialState, action) => {
 /* Selectors */
 
 // Get showAddPost
-export const getShowAddPost = state => state.app.showAddPost;
+export const getShowAddTravel = state => state.app.showAddTravel;
 
 // Export Reducer
 export default AppReducer;

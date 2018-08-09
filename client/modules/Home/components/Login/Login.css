@@ -1,0 +1,25 @@
+.login-container {
+  display: inline-block;
+  text-align: center;
+  font-size: 34px;
+  margin: 50px;
+}
+.face {
+  border: 1px solid blue;
+  color: blue;
+}
+.google {
+  border: 1px solid red;
+  color: red;
+}
+
+.logout {
+  text-decoration: none;
+  color: #f6a42b;
+  border: none;
+  width: 100%;
+  padding: .5rem;
+  font-size: 2em;
+  text-align: center;
+  background-color: #00BFB5;
+}

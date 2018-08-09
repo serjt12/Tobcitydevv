@@ -1,0 +1,51 @@
+/* Home styles */
+.container {
+  max-width: 980px;
+  width: 100%;
+  padding: 15px;
+  margin: 0 auto;
+}
+.main-container{
+  flex-direction: column;
+}
+.circulo {
+  background-image: url('./images/circulo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.emojis {
+  background-image: url('./images/circuloemoji.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  text-align: center;
+  height: 350px;
+}
+.logo {
+  width: 60%;
+  position: relative;
+  top: 55px;
+  left: 11px;
+}
+.top-container {
+  text-align: center;
+}
+.paso1textmob,
+.paso2textmob,
+.paso3textmob,
+.paso4textmob,
+.paso5textmob {
+  width: 80%;
+  margin: 20px auto;
+}
+.paso1numbermob,
+.paso2numbermob,
+.paso3numbermob,
+.paso4numbermob,
+.paso5numbermob {
+  width: 20%;
+}
+.right-container {
+  display: none;
+}

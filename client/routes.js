@@ -1,7 +1,8 @@
 /* eslint-disable global-require */
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import App from './modules/App/App';
+import Home from './modules/Home/Home';
+// import App from './modules/App/App';
 
 // require.ensure polyfill for node
 if (typeof require.ensure !== 'function') {
@@ -16,26 +17,28 @@ if (typeof require.ensure !== 'function') {
  */
 if (process.env.NODE_ENV !== 'production') {
   // Require async routes only in development for react-hot-reloader to work.
-  require('./modules/Post/pages/PostListPage/PostListPage');
-  require('./modules/Post/pages/PostDetailPage/PostDetailPage');
+  require('./modules/Travel/pages/TravelListPage/TravelListPage');
+  require('./modules/travel/pages/travelDetailPage/travelDetailPage');
+  // require('./modules/Post/pages/PostListPage/PostListPage');
+  // require('./modules/Post/pages/PostDetailPage/PostDetailPage');
 }
 
 // react-router setup with code-splitting
 // More info: http://blog.mxstbr.com/2016/01/react-apps-with-pages/
 export default (
-  <Route path="/" component={App}>
+  <Route path="/" component={Home}>
     <IndexRoute
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./modules/Post/pages/PostListPage/PostListPage').default);
+          cb(null, require('./modules/Travel/pages/TravelListPage/TravelListPage').default);
         });
       }}
     />
     <Route
-      path="/posts/:slug-:cuid"
+      path="/travels/:cuid"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./modules/Post/pages/PostDetailPage/PostDetailPage').default);
+          cb(null, require('./modules/Travel/pages/TravelDetailPage/TravelDetailPage').default);
         });
       }}
     />

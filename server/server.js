@@ -45,9 +45,11 @@ import Helmet from 'react-helmet';
 // Import required modules
 import routes from '../client/routes';
 import { fetchComponentData } from './util/fetchData';
-import posts from './routes/post.routes';
-import dummyData from './dummyData';
+import user from './routes/user.routes';
+import travel from './routes/travel.routes';
+import dummyDataTravel from './dummyDataTravel';
 import serverConfig from './config';
+import Favicon from '../client/favicon.png';
 
 // Set native promises as mongoose promise
 mongoose.Promise = global.Promise;
@@ -61,7 +63,7 @@ if (process.env.NODE_ENV !== 'test') {
     }
 
     // feed some dummy data in DB.
-    dummyData();
+    dummyDataTravel();
   });
 }
 
@@ -70,7 +72,8 @@ app.use(compression());
 app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(path.resolve(__dirname, '../dist/client')));
-app.use('/api', posts);
+app.use('/api', user);
+app.use('/api', travel);
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
@@ -92,7 +95,7 @@ const renderFullPage = (html, initialState) => {
 
         ${isProdMode ? `<link rel='stylesheet' href='${assetsManifest['/app.css']}' />` : ''}
         <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'/>
-        <link rel="shortcut icon" href="http://res.cloudinary.com/hashnode/image/upload/v1455629445/static_imgs/mern/mern-favicon-circle-fill.png" type="image/png" />
+        <link rel="shortcut icon" href=${Favicon} type="image/png" />
       </head>
       <body>
         <div id="root">${process.env.NODE_ENV === 'production' ? html : `<div>${html}</div>`}</div>
@@ -157,7 +160,7 @@ app.use((req, res, next) => {
 // start app
 app.listen(serverConfig.port, (error) => {
   if (!error) {
-    console.log(`MERN is running on port: ${serverConfig.port}! Build something amazing!`); // eslint-disable-line
+    console.log(`Tobcity is running on port: ${serverConfig.port}! Build something amazing!`); // eslint-disable-line
   }
 });
 
